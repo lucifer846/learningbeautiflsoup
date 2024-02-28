@@ -1,7 +1,11 @@
 from bs4 import BeautifulSoup
+import requests
+import sys, io
 
-with open("index.html") as f:
-    doc = BeautifulSoup(f, "html.parser")
+#set the console encoding to utf-8 to display the indian rupee sign in webpage
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-find = doc.find_all("p")
-print(find[0].find_all("b"))
+url = "https://www.croma.com/phones-wearables/mobile-phones/android-phones/c/95"
+result = requests.get(url)
+soup = BeautifulSoup(result.text, 'html.parser')
+print(soup.prettify())
