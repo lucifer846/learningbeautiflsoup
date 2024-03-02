@@ -8,7 +8,5 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 url = "https://www.croma.com/phones-wearables/mobile-phones/android-phones/c/95"
 result = requests.get(url)
 soup = BeautifulSoup(result.text, 'html.parser')
-rate = soup.find_all(string='₹12,999')
+rate = soup.find_all("li") # the li tags lists all products
 print(rate)
-for i in range(4):
-    print(rate[i].parent)
