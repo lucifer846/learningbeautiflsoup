@@ -16,3 +16,4 @@ for i in trows:
     tagwithname = i.find("div", class_="sc-a0353bbc-0 gDrtaY")
     price = tagwithname.text
     print(price)
+#this code doesnt' work anymore , i think its due to the autochange in class name 
